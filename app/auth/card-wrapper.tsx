@@ -1,6 +1,13 @@
 "use client";
 
-import { Card } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 interface CardWrapperProps {
   children: React.ReactNode;
@@ -17,12 +24,18 @@ export const CardWrapper = ({
   showSocial,
 }: CardWrapperProps) => {
   return (
-    <Card className="w-[350px]">
-      <h3 className="text-4xl font-semibold">Welcome Back 👋</h3>
-      <p className="text-sm">
-        Today is a new day. It&apos;s your day. You shape it. Sign in to start
-        managing your projects.
-      </p>
+    <Card className="w-full shadow-none">
+      <CardHeader>
+        <CardTitle className="text-3xl font-semibold">{headerLabel}</CardTitle>
+        <CardDescription>
+          {" "}
+          Today is a new day. It&apos;s your day. You shape it. Sign in to start
+          managing your projects.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>{children}</CardContent>
+      {showSocial && <CardFooter></CardFooter>}
+      <CardFooter></CardFooter>
     </Card>
   );
 };
