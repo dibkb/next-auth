@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 export const LoginForm = () => {
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -64,7 +65,7 @@ export const LoginForm = () => {
                 <FormControl>
                   <Input
                     {...field}
-                    placeholder="Enter password"
+                    placeholder="At least 8 characters"
                     type="password"
                     className="bg-slate-100 border"
                   ></Input>
@@ -73,6 +74,12 @@ export const LoginForm = () => {
               </FormItem>
             )}
           ></FormField>
+          <Link
+            href={"auth/forgot"}
+            className="text-xs hover:underline text-blue-600 font-medium text-right"
+          >
+            Forgot Password
+          </Link>
         </form>
       </Form>
     </CardWrapper>
