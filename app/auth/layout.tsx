@@ -3,7 +3,7 @@ import Image from "next/image";
 import { imagesLink } from "@/utils/images";
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main className="flex flex-col h-full mt-6 px-6">
+    <main className="flex flex-col h-full mt-6 px-6 gap-y-6">
       <div className="h-56 relative">
         <Image
           src={imagesLink.login}
