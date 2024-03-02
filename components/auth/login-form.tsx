@@ -33,7 +33,10 @@ export const LoginForm = () => {
       showSocial
     >
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(() => {})}>
+        <form
+          onSubmit={form.handleSubmit(() => {})}
+          className="flex flex-col gap-y-2"
+        >
           <FormField
             control={form.control}
             name="email"
@@ -41,8 +44,32 @@ export const LoginForm = () => {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="johndoe@email.com"></Input>
+                  <Input
+                    {...field}
+                    placeholder="Example@email.com"
+                    type="email"
+                    className="bg-slate-100 border"
+                  ></Input>
                 </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          ></FormField>
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Password</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    placeholder="Enter password"
+                    type="password"
+                    className="bg-slate-100 border"
+                  ></Input>
+                </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           ></FormField>
