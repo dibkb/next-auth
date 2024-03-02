@@ -9,7 +9,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
           src={imagesLink.login}
           fill
           objectFit="cover"
-          alt="Picture of the author"
+          alt="Lgoin picture"
           className="rounded-2xl"
         />
       </div>

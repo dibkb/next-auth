@@ -8,9 +8,12 @@ export const LoginForm = () => {
       headerLabel="Welcome Back 👋"
       backbuttonLabel="Don't have an account?"
       backButtonHref="/auth/register"
+      description="
+          Today is a new day. It's your day. You shape it. Sign in to start
+          managing your projects."
       showSocial
     >
-      s
+      _
     </CardWrapper>
   );
 };

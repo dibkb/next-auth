@@ -1,5 +1,6 @@
 "use client";
 
+import { Backbutton } from "@/components/auth/back-button";
 import { Social } from "@/components/auth/socail";
 import {
   Card,
@@ -13,6 +14,7 @@ import {
 interface CardWrapperProps {
   children: React.ReactNode;
   headerLabel: string;
+  description: string;
   backbuttonLabel: string;
   backButtonHref: string;
   showSocial?: boolean;
@@ -20,6 +22,7 @@ interface CardWrapperProps {
 export const CardWrapper = ({
   children,
   headerLabel,
+  description,
   backbuttonLabel,
   backButtonHref,
   showSocial,
@@ -28,11 +31,7 @@ export const CardWrapper = ({
     <Card className="w-full shadow-none">
       <CardHeader>
         <CardTitle className="text-3xl font-semibold">{headerLabel}</CardTitle>
-        <CardDescription>
-          {" "}
-          Today is a new day. It&apos;s your day. You shape it. Sign in to start
-          managing your projects.
-        </CardDescription>
+        <CardDescription>{description} </CardDescription>
       </CardHeader>
       <CardContent>{children}</CardContent>
       {showSocial && (
@@ -40,7 +39,9 @@ export const CardWrapper = ({
           <Social />
         </CardFooter>
       )}
-      <CardFooter></CardFooter>
+      <CardFooter>
+        <Backbutton label={backbuttonLabel} href={backButtonHref} />
+      </CardFooter>
     </Card>
   );
 };
