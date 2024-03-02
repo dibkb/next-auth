@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "../ui/button";
 
 interface Backbuttonprops {
@@ -9,7 +10,9 @@ interface Backbuttonprops {
 export const Backbutton = ({ href, label }: Backbuttonprops) => {
   return (
     <Button variant={"link"} size={"sm"} className="w-full text-sm">
-      <a href={href}>{label}</a>
+      <Link href={href} className="text-slate-500 font-normal">
+        {label}
+      </Link>
     </Button>
   );
 };
