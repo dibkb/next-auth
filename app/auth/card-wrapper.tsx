@@ -1,5 +1,6 @@
 "use client";
 
+import { Social } from "@/components/auth/socail";
 import {
   Card,
   CardContent,
@@ -34,7 +35,11 @@ export const CardWrapper = ({
         </CardDescription>
       </CardHeader>
       <CardContent>{children}</CardContent>
-      {showSocial && <CardFooter></CardFooter>}
+      {showSocial && (
+        <CardFooter>
+          <Social />
+        </CardFooter>
+      )}
       <CardFooter></CardFooter>
     </Card>
   );
