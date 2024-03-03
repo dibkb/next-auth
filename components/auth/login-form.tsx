@@ -85,7 +85,7 @@ export const LoginForm = () => {
             Forgot Password
           </Link>
           {/* <LoginError message="Invalid password" /> */}
-          <LoginSucces message="Invalid password" />
+          {/* <LoginSucces message="Invalid password" /> */}
           <Button variant="default" size={"lg"}>
             Log in
           </Button>
