@@ -18,7 +18,12 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { LoginError } from "./login-error";
 import { LoginSucces } from "./login-success";
+import { login } from "@/actions/login";
+import { useState, useTransition } from "react";
 export const LoginForm = () => {
+  const [successMessage, setSuccessMessage] = useState<string | undefined>("");
+  const [errorMessage, setErrorMessage] = useState<string | undefined>("");
+  const [isPending, startTransition] = useTransition();
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -26,7 +31,13 @@ export const LoginForm = () => {
       password: "",
     },
   });
-  const onSubmit = (values: z.infer<typeof loginSchema>) => {};
+  const onSubmit = (values: z.infer<typeof loginSchema>) => {
+    setErrorMessage("");
+    setSuccessMessage("");
+    startTransition(async () => {
+      login(values);
+    });
+  };
   return (
     <CardWrapper
       headerLabel="Welcome Back 👋"
@@ -43,6 +54,7 @@ export const LoginForm = () => {
           className="flex flex-col gap-y-2"
         >
           <FormField
+            disabled={isPending}
             control={form.control}
             name="email"
             render={({ field }) => (
@@ -61,6 +73,7 @@ export const LoginForm = () => {
             )}
           ></FormField>
           <FormField
+            disabled={isPending}
             control={form.control}
             name="password"
             render={({ field }) => (
@@ -84,9 +97,9 @@ export const LoginForm = () => {
           >
             Forgot Password
           </Link>
-          {/* <LoginError message="Invalid password" /> */}
-          {/* <LoginSucces message="Invalid password" /> */}
-          <Button variant="default" size={"lg"}>
+          <LoginError message={errorMessage} />
+          <LoginSucces message={successMessage} />
+          <Button variant="default" size={"lg"} disabled={isPending}>
             Log in
           </Button>
         </form>

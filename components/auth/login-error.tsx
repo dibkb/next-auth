@@ -1,7 +1,7 @@
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 interface LoginErrorProps {
-  message: string;
+  message?: string;
 }
 export const LoginError = ({ message }: LoginErrorProps) => {
   if (!message) return null;

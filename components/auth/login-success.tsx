@@ -1,7 +1,7 @@
 import { CheckIcon } from "@radix-ui/react-icons";
 
 interface LoginSuccessProps {
-  message: string;
+  message?: string;
 }
 export const LoginSucces = ({ message }: LoginSuccessProps) => {
   if (!message) return null;
