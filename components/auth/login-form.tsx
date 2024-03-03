@@ -16,6 +16,8 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import { LoginError } from "./login-error";
+import { LoginSucces } from "./login-success";
 export const LoginForm = () => {
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -24,6 +26,7 @@ export const LoginForm = () => {
       password: "",
     },
   });
+  const onSubmit = (values: z.infer<typeof loginSchema>) => {};
   return (
     <CardWrapper
       headerLabel="Welcome Back 👋"
@@ -36,7 +39,7 @@ export const LoginForm = () => {
     >
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(() => {})}
+          onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col gap-y-2"
         >
           <FormField
@@ -81,6 +84,8 @@ export const LoginForm = () => {
           >
             Forgot Password
           </Link>
+          {/* <LoginError message="Invalid password" /> */}
+          <LoginSucces message="Invalid password" />
           <Button variant="default" size={"lg"}>
             Log in
           </Button>
