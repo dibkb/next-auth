@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "../ui/button";
 import { LoginError } from "./login-error";
 import { LoginSucces } from "./login-success";
-import { login } from "@/actions/login";
+import { register } from "@/actions/login";
 import { useState, useTransition } from "react";
 export const RegisterForm = () => {
   const [successMessage, setSuccessMessage] = useState<string | undefined>("");
@@ -34,10 +34,10 @@ export const RegisterForm = () => {
     setErrorMessage("");
     setSuccessMessage("");
     startTransition(async () => {
-      //   login(values).then((res) => {
-      //     setSuccessMessage(res.success);
-      //     setErrorMessage(res.error);
-      //   });
+      register(values).then((res) => {
+        setSuccessMessage(res.success);
+        setErrorMessage(res.error);
+      });
     });
   };
   return (
