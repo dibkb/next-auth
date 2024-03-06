@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "../ui/button";
 import { LoginError } from "./login-error";
 import { LoginSucces } from "./login-success";
-import { register } from "@/actions/login";
+import { register } from "@/actions/register";
 import { useState, useTransition } from "react";
 export const RegisterForm = () => {
   const [successMessage, setSuccessMessage] = useState<string | undefined>("");
