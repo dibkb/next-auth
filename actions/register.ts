@@ -2,7 +2,7 @@
 import { db } from "@/lib/db";
 import * as z from "zod";
 import { registerSchema } from "@/schemas";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { getUserByEmail } from "@/utils/user";
 export const register = async (values: z.infer<typeof registerSchema>) => {
   const serverValid = registerSchema.safeParse(values);
