@@ -10,7 +10,7 @@ export const login = async (values: z.infer<typeof loginSchema>) => {
   const serverValid = loginSchema.safeParse(values);
   if (!serverValid.success) {
     return {
-      error: "Invalid email",
+      error: "Invalid email ",
     };
   }
   const { email, password } = serverValid.data;
