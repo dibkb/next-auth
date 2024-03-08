@@ -28,7 +28,7 @@ export const register = async (values: z.infer<typeof registerSchema>) => {
   });
   if (newUser) {
     return {
-      success: `Account successfully created for ${newUser.id}`,
+      success: `Account successfully created`,
     };
   } else {
     return {
